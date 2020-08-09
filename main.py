@@ -11,7 +11,7 @@ def converter():
     result.delete(CURRENT, END)  # to delete past occurences
     try:
         int(decimal.get())  # exception cases for alphabets
-    except Exception as ValueError:
+    except Exception:
         # message box is used inorder to display errors in new error screen
         messagebox.showerror('invalid!', message='enter only numbers')
         decimal.delete(0, END)
@@ -37,7 +37,7 @@ def converter():
 root = Tk()
 root.title('decimal to binary')
 root.geometry('400x400')
-
+root.resizable(False, False)
 # setting title and words here
 Label(root, text='decimal to binary converter',
       font='timesnewroman 14 bold').place(x=60, y=0)
