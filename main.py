@@ -5,7 +5,7 @@ from tkinter import messagebox
 # a single function to convert decimal to binary
 
 
-def converter():
+def converter(Event=None):
     # making state so user cannot write on result
     result.config(state='normal')
     result.delete(CURRENT, END)  # to delete past occurences
@@ -38,17 +38,18 @@ root = Tk()
 root.title('decimal to binary')
 root.geometry('400x400')
 root.resizable(False, False)
+root.config(bg='grey')
 # setting title and words here
 Label(root, text='decimal to binary converter',
-      font='timesnewroman 14 bold').place(x=60, y=0)
-Label(root, text='enter a number:', font='verdana 10').place(x=70, y=100)
-Label(root, text='the result is:', font='verdana 10').place(x=40, y=200)
-
+      font='timesnewroman 14 bold', bg='grey').place(x=60, y=0)
+Label(root, text='enter a number:', font='verdana 10', bg='grey').place(x=70, y=100)
+Label(root, text='the result is:', font='verdana 10', bg='grey').place(x=40, y=200)
 # setting buttons entry and result values in here
 decimal = Entry(root)
 but = Button(root, text='find', command=converter)
 result = Text(root, width=25, height=1, state='disable')
-
+# a simple bind event to run when enter is pressed
+root.bind('<Return>', converter)
 # finally placing in correct places
 decimal.place(x=190, y=100)
 but.place(x=210, y=150)
