@@ -40,21 +40,27 @@ root.geometry('400x400')
 root.resizable(False, False)
 root.config(bg='grey')
 
+
 def reallyquiting():
     # a function to override the exit button
     result = messagebox.askyesno('Exit', message='Do you want to quit?')
-    if result ==True:
+    if result is True:
         root.destroy()
     else:
         pass
+
+
 root.protocol('WM_DELETE_WINDOW', reallyquiting)
 
 
 # setting title and words here
 Label(root, text='decimal to binary converter',
       font='timesnewroman 14 bold', bg='grey').place(x=60, y=0)
-Label(root, text='enter a number:', font='verdana 10', bg='grey').place(x=70, y=100)
-Label(root, text='the result is:', font='verdana 10', bg='grey').place(x=40, y=200)
+Label(root, text='enter a number:',
+      font='verdana 10', bg='grey').place(x=70, y=100)
+Label(root, text='the result is:',
+      font='verdana 10', bg='grey').place(x=40, y=200)
+
 # setting buttons entry and result values in here
 decimal = Entry(root)
 but = Button(root, text='find', command=converter)
